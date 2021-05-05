@@ -4,17 +4,21 @@
 
 ## 前提：
 
-项目用于帮助oss中的各种操作，采用web架构
+项目API封装了oss中的各种操作，采用Springboot web架构
 
-项目resource下面有application.properties需要修改成自己的
+除却个别功能，大部分都囊括在内。
+
+另外：application.properties有安全凭证以及包含 SecretId 及 SecretKey 两部分需要修改成自己的。
+
+本项目没有进行相关代理，需要的自己查[代理配置](https://cloud.tencent.com/document/sdk/Java)
+
 
 ## 功能
 
 - [上传对象](https://cloud.tencent.com/document/product/436/13321)[下载对象](https://cloud.tencent.com/document/product/436/13322)
-
-
-
+已经完成！
 - [复制对象](https://cloud.tencent.com/document/product/436/39849)
+- 
 - [查看对象信息](https://cloud.tencent.com/document/product/436/13326)
 - [搜索对象](https://cloud.tencent.com/document/product/436/13325)
 - [排序或筛选对象](https://cloud.tencent.com/document/product/436/52661)
