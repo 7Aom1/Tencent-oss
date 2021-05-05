@@ -6,7 +6,7 @@
 
 项目用于帮助oss中的各种操作，采用web架构
 
-项目resource下面有application.properties需要成修改自己的
+项目resource下面有application.properties需要修改成自己的
 
 ## 功能
 
