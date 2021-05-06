@@ -10,11 +10,13 @@ import com.qcloud.cos.http.HttpProtocol;
 import com.qcloud.cos.model.PutObjectRequest;
 import com.qcloud.cos.model.PutObjectResult;
 import com.qcloud.cos.region.Region;
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
+import java.util.UUID;
 
 /**
  * @Author xwj
@@ -49,8 +51,18 @@ public class OssServiceImpl implements OssService {
             // 指定文件将要存放的存储桶
             String bucketName = this.bucketName;
             System.out.println("------------------------"+Uploadfile.getOriginalFilename()+"-----------------------");
-            // 指定文件上传到 COS 上的路径，即对象键。例如对象键为folder/picture.jpg，则表示将文件 picture.jpg 上传到 folder 路径下
-            String key = "guliSchool/"+Uploadfile.getName();
+            // 指定文件上传到 COS 上的路径，即对象键。例如对象键为folder/picture.jpg，则表示将文件 picture.jpg 上传到 folder 路径
+
+            //在文件名称里添加随机唯一的值
+            String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+            String filename=uuid+Uploadfile.getOriginalFilename();
+            //把文件按照日期进行分类
+            //获取当前日期
+            String datepath = new DateTime().toString("yyyy/MM/dd");
+            //拼接
+            filename=datepath+"/"+filename;
+            String key = "guliSchool/"+filename;
+
             PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, key, inputStream,null);
             PutObjectResult putObjectResult = cosClient.putObject(putObjectRequest);
 
