@@ -8,7 +8,7 @@
 
 除却个别功能，大部分都囊括在内。
 
-另外：application.properties有安全凭证以及包含 SecretId 及 SecretKey 两部分需要修改成自己的。
+另外：application.properties有安全凭证以及包含 SecretId 及 SecretKey 两部分需要修改成自己的。!
 
 本项目没有进行相关代理，需要的自己查[代理配置](https://cloud.tencent.com/document/sdk/Java)
 
